@@ -7,6 +7,22 @@ const cors = require('cors');
 const app = express();
 const port = 5001;
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+      return res.status(200).json({
+          body: "OK"
+      });
+  }
+  
+  next();
+});
+
 // Enable CORS
 app.use(cors());
 app.use(express.json());
@@ -17,6 +33,7 @@ app.get('/', (req, res) => {
 
 // Endpoint to handle requests from the React application
 app.post('/generate-profile-picture', async (req, res) => {
+  console.log("You are here");
   const { prompt } = req.body;
   const optimizedPrompt = `NFT profile picture, ${prompt}`;
   try {
