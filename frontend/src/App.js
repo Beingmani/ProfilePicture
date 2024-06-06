@@ -15,7 +15,7 @@ const App = () => {
        const prompt = `${favoriteColor} monochromatic minimalist portrait of a ${favoriteAnimal} head with a random, strong facial expression in a simplistic cartoon style with satirical humor, simple details, and rounded minimalist shapes, wearing ${favoriteFood} as accessories.`;
       
       const response = await axios.post(
-        'https://profile-picture-server.vercel.app/generate-profile-picture',
+        'http://localhost:5001/generate-profile-picture',
         { prompt },
         { responseType: 'arraybuffer' }
       );
