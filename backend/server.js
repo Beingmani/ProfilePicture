@@ -10,7 +10,7 @@ const port = 5001;
 // Enable CORS
 app.use(cors());
 app.use(express.json());
-
+//Adding this to check
 app.get('/', (req, res) => {
   res.send('Your server is running!');
 });
