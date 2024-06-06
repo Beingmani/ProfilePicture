@@ -11,6 +11,10 @@ const port = 5001;
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('Your server is running!');
+});
+
 // Endpoint to handle requests from the React application
 app.post('/generate-profile-picture', async (req, res) => {
   const { prompt } = req.body;
