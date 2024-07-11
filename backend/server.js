@@ -39,7 +39,7 @@ app.post('/generate-profile-picture', async (req, res) => {
   const optimizedPrompt = `NFT profile picture, ${prompt}`;
   try {
     const response = await axios.post(
-      'https://api.cloudflare.com/client/v4/accounts/a1cfee758c7a8c26842e6516749e3746/ai/run/@cf/bytedance/stable-diffusion-xl-lightning',
+      'https://api.cloudflare.com/client/v4/accounts/a1cfee758c7a8c26842e6516749e3746/ai/run/@cf/stabilityai/stable-diffusion-xl-base-1.0',
       { prompt: optimizedPrompt },
       {
         headers: {
