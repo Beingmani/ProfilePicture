@@ -39,7 +39,7 @@ app.post('/generate-profile-picture', async (req, res) => {
   const optimizedPrompt = `${prompt}`;
   try {
     const response = await axios.post(
-      'https://api.cloudflare.com/client/v4/accounts/a1cfee758c7a8c26842e6516749e3746/ai/run/@cf/runwayml/stable-diffusion-v1-5-inpainting ',
+      'https://api.cloudflare.com/client/v4/accounts/a1cfee758c7a8c26842e6516749e3746/ai/run/@cf/runwayml/stable-diffusion-v1-5-inpainting',
       { prompt: optimizedPrompt },
       {
         headers: {
