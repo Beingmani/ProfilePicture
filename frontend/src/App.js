@@ -11,11 +11,12 @@ const App = () => {
   const generateProfilePicture = async (values) => {
     try {
       setLoading(true);
-      const { favoriteFood, favoriteAnimal, favoriteColor } = values;
-       const prompt = `${favoriteColor} monochromatic minimalist portrait of a ${favoriteAnimal} head with a random, strong facial expression in a simplistic cartoon style with satirical humor, simple details, and rounded minimalist shapes, wearing ${favoriteFood} as accessories.`;
+      const { desiredStyle, deiredCategory, description , additionalDetails} = values;
+      const prompt = `Create a ${desiredStyle} illustration of ${deiredCategory} with ${description}. The illustration should include details like ${additionalDetails}.`;
+
       
       const response = await axios.post(
-        'https://profile-picture-server.vercel.app/generate-profile-picture',
+        'http://localhost:5001/generate-profile-picture',
         { prompt },
         { responseType: 'arraybuffer' }
       );
@@ -64,6 +65,13 @@ const App = () => {
         <Form.Item
           name="favoriteColor"
           label="Favorite Color"
+          rules={[{ required: true, message: 'Please enter your favorite color' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="favoriteColor1"
+          label="Favorite Color1"
           rules={[{ required: true, message: 'Please enter your favorite color' }]}
         >
           <Input />
