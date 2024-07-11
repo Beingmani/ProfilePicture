@@ -36,7 +36,7 @@ app.use(express.json());
 app.post('/generate-profile-picture', async (req, res) => {
   console.log("You are here");
   const { prompt } = req.body;
-  const optimizedPrompt = `NFT profile picture, ${prompt}`;
+  const optimizedPrompt = `${prompt}`;
   try {
     const response = await axios.post(
       'https://api.cloudflare.com/client/v4/accounts/a1cfee758c7a8c26842e6516749e3746/ai/run/@cf/bytedance/stable-diffusion-xl-lightning',
